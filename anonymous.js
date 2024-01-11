@@ -1,0 +1,161 @@
+//Print odd numbers in an array
+
+
+let arr = [1,2,3,4,5,6,7,8,9];
+
+let even = arr.filter (function(res){
+    return res % 2 === 0;
+});
+
+console.log("Even Number are: ",  even);
+
+let odd = arr.filter(function(num1){
+    return num1 % 2 !==0;
+});
+
+console.log("Odd Number Are: ", odd);
+
+
+// Convert all the strings to title caps in a string array
+
+let str = ["i am a full stack developer"];
+
+let result = str[0].split(' ').map(function (res) {
+    return res.charAt(0).toUpperCase() + res.slice(1);
+}).join(' ');
+
+console.log("Title caps in a string array is: ", result);
+
+
+// Sum of all numbers in an array
+
+let a = [1,2,3,4,5,6,7];
+
+let b = 0;
+
+let result1 = function (arr, arr1) {
+    let sum = arr1;
+
+    for(let i = 0; i<arr.length; i++){
+        sum+=arr[i];
+    }
+    return sum;
+}(a,b);
+
+
+console.log("Sum of all numbers in an array is : ", result1);
+
+
+// Return all the prime numbers in an array
+
+let num = [1, 3, 2, 5, 10, 4, 7];
+
+let primeNum = num.filter(function(num1) {
+    for(let i = 2; i<num1; i++){
+        if (num1 % i === 0) {
+            return false;
+        }
+        return num1!==1;
+    }
+
+});
+
+console.log("The prime Numbers are: ", primeNum);
+
+
+// Return all palindromes in an array
+
+let arr1 = ["xyz", "madam", "racecar","destiny","reviver"];
+let arr2 = arr1.length;
+
+let isPalindrome = function(a) {
+    let b = a;
+
+    a = a.split("").reverse().join("");
+
+    return a == b;
+}
+
+let palindromeArray= function(arr1, arr2){
+    let res = [];
+
+    for(let i = 0; i<arr2; i++){
+        if(isPalindrome(arr1[i])){
+            res.push(arr1[i]);
+        }
+    }
+
+    return res;
+}
+
+let x = palindromeArray(arr1, arr2)
+
+if(x.length === 0){
+    console.log("-1");
+}
+for (const str of x) {
+    console.log(str, " ");
+}
+
+// Return median of two sorted arrays of the same size.
+
+let a1 = [1,4,7,3,6,9];
+let a2 = [2,1,6,9,5,2,7];
+
+let median = function(a1,a2){
+    let mergedmedian = a1.concat(a2).sort(function(x,y){
+        return x - y;
+    });
+
+    let length = mergedmedian.length;
+    let res = Math.floor(length/2);
+
+    if (length % 2 == 0) {
+        return (mergedmedian[res - 1] + mergedmedian[res])/2;
+    }else{
+        return mergedmedian[res];
+    }
+};
+
+let mainres = median(a1,a2);
+console.log("The median of sorted arrays: ", mainres);
+
+// Remove duplicates from an array
+
+let x1 = [1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9];
+
+let removeDuplicates = function(arrayset){
+    let set1 = new Set(arrayset);
+
+    let as1 = [...set1];
+
+    return as1;
+
+}
+
+let result2 = removeDuplicates(x1);
+
+console.log("Orginal Array: ", x1);
+console.log("After removing duplicate: ", result2);
+
+
+// Rotate an array by k times
+
+let mainarray = [1,2,3,4,5,6,7];
+let k = 2;
+
+let rotate = function(p, k){
+    let i = p.length;
+
+    k = k % i;
+
+    let afterrotate = p.slice(i-k).concat(p.slice(0,i-k));
+
+    return afterrotate;
+};
+
+let afterrotate = rotate(mainarray, k);
+
+console.log("Before Rotate: ", mainarray);
+console.log("After Rotate: ", afterrotate);
+
